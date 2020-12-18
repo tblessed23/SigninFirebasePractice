@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394849702578",
+    "project_id": "signinfirebasepractice",
+    "storage_bucket": "signinfirebasepractice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394849702578:android:044235dbf2822b1ab62fab",
+        "android_client_info": {
+          "package_name": "com.msbs.android.signinfirebasepractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394849702578-mc6op32hll9g0u80kli7gd0aeajgsa1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5Q_RsNbxJTta-kpJojRzGzhYW9sa8f8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394849702578-mc6op32hll9g0u80kli7gd0aeajgsa1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
