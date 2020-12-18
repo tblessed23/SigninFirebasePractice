@@ -4,12 +4,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <TextView
         android:id="@+id/fragment_loggedin_loggedInUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:gravity="center_horizontal" />
+
+    <!-- TextView that displays the update date -->
+    <TextView
+        android:id="@+id/taskUpdatedAt"
+        style="@style/TextAppearance.AppCompat.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/primary_text_light"
+        />
+    <!-- A RecyclerView with some commonly used attributes -->
+
+
 
 
     <TextView
@@ -26,4 +41,14 @@
         android:text="Log Out"
       />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/recyclerViewFavorites"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="28dp"/>
 </LinearLayout>
