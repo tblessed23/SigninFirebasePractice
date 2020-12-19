@@ -2,6 +2,7 @@ package com.msbs.android.signinfirebasepractice.model;
 
 import android.app.Application;
 import android.os.Build;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.msbs.android.signinfirebasepractice.R;
 
 
 public class AuthAppRepository {
@@ -63,6 +65,7 @@ public class AuthAppRepository {
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     public void register(String email, String password) {
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(application.getMainExecutor(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -88,6 +91,7 @@ public class AuthAppRepository {
 
 
                                 });
+
                             }
 
 
@@ -119,6 +123,7 @@ public class AuthAppRepository {
             mUserDao.insertTask(user);
         });
     }
+
 
 
 

@@ -64,10 +64,10 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
         String titleFavorities = taskEntry.getEmail();
         String id = taskEntry.getUserId();
 
-
+        String hold = "Loggied in from Databse" + titleFavorities;
 
         //Set values
-        holder.favoriteTitle.setText(titleFavorities);
+        holder.favoriteTitle.setText(hold);
         holder.favoriteId.setText(id);
 
 
