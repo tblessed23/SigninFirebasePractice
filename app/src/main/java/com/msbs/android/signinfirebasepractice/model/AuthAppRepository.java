@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.MutableLiveData;
+import androidx.room.Database;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,7 +21,7 @@ import com.msbs.android.signinfirebasepractice.R;
 public class AuthAppRepository {
 
     private Application application;
-    private AppDatabase mDB;
+    private NewDatabase mDB;
     private UserDao mUserDao;
 
 
@@ -36,8 +37,8 @@ public class AuthAppRepository {
         this.userLiveData = new MutableLiveData<>();
         this.loggedOutLiveData = new MutableLiveData<>();
 
-        AppDatabase db = AppDatabase.getInstance(application);
-        mUserDao = db.userDao();
+        mDB = NewDatabase.getInstance(application);
+        mUserDao = mDB.userDao();
 
 
         if (firebaseAuth.getCurrentUser() != null) {
@@ -86,7 +87,7 @@ public class AuthAppRepository {
                                     @Override
                                     public void run() {
 
-                                        mDB.userDao().insertTask(user);
+                                        mUserDao.insertTask(user);
                                     }
 
 
@@ -119,7 +120,7 @@ public class AuthAppRepository {
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     void insertTask(User user) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
+        NewDatabase.databaseWriteExecutor.execute(() -> {
             mUserDao.insertTask(user);
         });
     }

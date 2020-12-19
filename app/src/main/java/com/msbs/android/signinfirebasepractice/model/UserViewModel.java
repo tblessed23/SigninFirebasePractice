@@ -18,7 +18,7 @@ public class UserViewModel extends AndroidViewModel {
 
     public UserViewModel(@NonNull Application application) {
         super(application);
-        AppDatabase database = AppDatabase.getInstance(this.getApplication());
+       NewDatabase database = NewDatabase.getInstance(this.getApplication());
         mRepository = new AuthAppRepository(application);
         Log.d(TAG, "Actively retrieving  the tasks from the Database");
         tasks = database.userDao().loadAllTasks();

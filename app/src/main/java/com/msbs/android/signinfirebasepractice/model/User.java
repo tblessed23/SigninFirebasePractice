@@ -19,7 +19,7 @@ public class User implements Serializable {
     public String firstname;
 //    @Exclude
 //    public boolean isAuthenticated;
-    @Exclude
+    @Ignore
     boolean isNew, isCreated;
 
     /**
