@@ -2,4 +2,22 @@
     <string name="app_name">SigninFirebasePractice</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!---User Information-->
+    <string name="label_email">Email:</string>
+    <string name="label_firstname">Firstname:</string>
+    <string name="label_lastname">Lastname:</string>
+    <string name="label_city">City:</string>
+    <string name="label_state">State:</string>
+    <string name="label_country">Country (optional):</string>
+    <string name="label_phone">Phone:</string>
+    <string name="label_displayname">Display name displays to the public (optional):</string>
+    <string name="label_displayemail">Display Email displays to the public (optional) :</string>
+    <string name="editsavedaudio">Edit</string>
+
+    <string name="add_button">Save</string>
+    <string name="update_button">Update</string>
+    <!--Validation-->
+    <string name="nameerror">Enter a valid name</string>
+
 </resources>

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.FirebaseUser;
 import com.msbs.android.signinfirebasepractice.model.AuthAppRepository;
 
@@ -33,5 +35,9 @@ public class LoggedInViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> getLoggedOutLiveData() {
         return loggedOutLiveData;
     }
+
+//    public void signInWithGoogle(EmailAuthCredential googleAuthCredential) {
+//        userLiveData = authAppRepository.firebaseSignInWithGoogle(googleAuthCredential);
+//    }
 }
 

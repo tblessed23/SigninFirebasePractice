@@ -14,7 +14,7 @@ public class UserViewModel extends AndroidViewModel {
     //Constant for logging
     private static final String TAG = UserViewModel.class.getSimpleName();
     private AuthAppRepository mRepository;
-    private LiveData<List<User>> tasks;
+    private final LiveData<List<User>> tasks;
 
     public UserViewModel(@NonNull Application application) {
         super(application);

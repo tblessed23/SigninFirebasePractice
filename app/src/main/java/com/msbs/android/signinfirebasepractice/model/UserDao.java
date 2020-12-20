@@ -17,6 +17,11 @@ public interface UserDao {
     @Query("SELECT * FROM user")
     LiveData<List<User>> loadAllTasks();
 
+    // Create a Query method named loadTaskById that receives an int id and returns a TaskEntry Object
+    // The query for this method should get all the data for that id in the task table
+    @Query("SELECT * FROM user WHERE userId = :id")
+    LiveData<User> loadStoryById(String id);
+
     @Insert
     void insertTask(User user);
 

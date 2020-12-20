@@ -20,6 +20,7 @@ import com.msbs.android.signinfirebasepractice.model.AppExecutors;
 import com.msbs.android.signinfirebasepractice.model.NewDatabase;
 import com.msbs.android.signinfirebasepractice.model.User;
 import com.msbs.android.signinfirebasepractice.view.LoggedInActivity;
+import com.msbs.android.signinfirebasepractice.view.UserEditDetailsActivity;
 import com.msbs.android.signinfirebasepractice.viewmodel.LoginRegisterViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if (firebaseUser != null) {
-                    Intent intent = new Intent(MainActivity.this, LoggedInActivity.class);
+                    Intent intent = new Intent(MainActivity.this, UserEditDetailsActivity.class);
+
                     startActivity(intent);
                 }
             }
@@ -83,42 +85,14 @@ public class MainActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
                 if (email.length() > 0 && password.length() > 0) {
                     loginRegisterViewModel.register(email, password);
+
+
+
+
+
                 } else {
                     Toast.makeText(MainActivity.this, "Email Address and Password Must Be Entered", Toast.LENGTH_SHORT).show();
                 }
-
-
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                if (user != null) {
-//                    // Name, email address, and profile photo Url
-//
-//                    String emaildb = user.getEmail();
-//
-//                    // The user's ID, unique to the Firebase project. Do NOT use this value to
-//                    // authenticate with your backend server, if you have one. Use
-//                    // FirebaseUser.getIdToken() instead.
-//                    String uid = user.getUid();
-//
-//                    final User upload = new User(uid,emaildb);
-//                    AppExecutors.getInstance().diskIO().execute(new Runnable()
-//                    {
-//                        @Override
-//                        public void run() {
-//                            // Insert the task only if mTaskId matches
-//                            //DEFAULT_TASK_ID
-//                            // Otherwise update it
-//                            // call finish in any case
-//                            if (mTaskId == DEFAULT_TASK_ID) {
-//
-//                                mDb.userDao().insertTask(upload);
-//
-//                            }
-//
-//                            finish();
-//                        }
-//                    });
-//                }
-
 
 
             }

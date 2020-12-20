@@ -1,8 +1,10 @@
 package com.msbs.android.signinfirebasepractice.model;
 
 import android.app.Application;
+import android.content.Intent;
 import android.os.Build;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,7 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.msbs.android.signinfirebasepractice.MainActivity;
 import com.msbs.android.signinfirebasepractice.R;
+import com.msbs.android.signinfirebasepractice.view.UserEditDetailsActivity;
 
 
 public class AuthAppRepository {
@@ -45,6 +49,7 @@ public class AuthAppRepository {
             userLiveData.postValue(firebaseAuth.getCurrentUser());
             loggedOutLiveData.postValue(false);
         }
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -66,7 +71,7 @@ public class AuthAppRepository {
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     public void register(String email, String password) {
-
+        MutableLiveData<User> authenticatedUserMutableLiveData = new MutableLiveData<>();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(application.getMainExecutor(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -79,7 +84,7 @@ public class AuthAppRepository {
                                 String userId = firebaseUser.getUid();
                                 String firstname = firebaseUser.getDisplayName();
                                 String email = firebaseUser.getEmail();
-                                User user = new User(userId, firstname, email);
+                                User user = new User(userId, email, null, null, null, null, null, null, null);
                                 user.isNew = isNewUser;
 
                                 AppExecutors.getInstance().diskIO().execute(new Runnable()
@@ -92,8 +97,9 @@ public class AuthAppRepository {
 
 
                                 });
-
+                                authenticatedUserMutableLiveData.setValue(user);
                             }
+
 
 
 
@@ -102,6 +108,9 @@ public class AuthAppRepository {
                         }
                     }
                 });
+
+
+
     }
 
     public void logOut() {
